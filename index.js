@@ -1,17 +1,13 @@
-const express = require("express");
-
-const app = express();
-
+const app = require('./src/app/app.js')
+// const middlewares = require('./src/middlewares/middlewares.js');
+// const routes = require('./src/routes/routes.js')
 const port = 3000;
 
-app.get("/", (req, res) => {
-    res.send("Hola, mundo!")
-    res.json({
-        message: "Hola, de nuevo",
-        timestamp: new Date().toISOString()
-    })
-    console.log("Recibida una solicitud GET en la ruta /")
-})
+// const middlewarePersonalizado = (req, res, next) => {
+//     console.log("Pasando por middlewarePersonalizado")
+//     next()
+// }
+
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`)
