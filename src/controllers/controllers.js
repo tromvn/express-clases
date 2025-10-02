@@ -1,10 +1,14 @@
-const registerNewUser = (req,res) => {
+
+
+
+const registerNewUser = (req, res) => {
     res.send("Acá creamos un nuevo usuario")
 }
 
 
 const getUserDetails = (req,res) => {
     res.send("Acá obtenemos los datos de un nuevo usuario")
+    console.log(req)
 }
 
 
@@ -23,7 +27,7 @@ const loginUser = (req,res) => {
 }
 
 
-modules.exports = {
+module.exports = {
     registerNewUser,
     getUserDetails,
     updateUserData,

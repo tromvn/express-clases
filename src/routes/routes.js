@@ -1,10 +1,15 @@
-const router = require('express').Router()
 const { registerNewUser,getUserDetails,updateUserData,deleteUser,loginUser } = require('../controllers/controllers')
+const router = require('express').Router()
 
 
 // API
 
 // rutas para acceder a servicios
+
+router.get('/', (req,res)=> {
+    res.sendFile(path.join(__dirname, '../../index.html'))
+})
+
 
 router.get('/checkhealth', (req,res)=> {
     res.send("Todo ok!")
@@ -25,29 +30,11 @@ router.put('/user/:id', updateUserData)
 
 
 // /user (DELETE) --> Eliminar datos de un usuario
-router.put('/user/:id', deleteUser)
+router.delete('/user/:id', deleteUser)
 
 
 // /user (POST) --> login 
-router.post('/user/:id', loginUser)
+router.post('/login', loginUser)
 
 
-
-
-
-/* app.get("/", (req, res) => {
-    res.send("Hola, mundo!")
-})
-
-app.get("/users", middlewarePersonalizado,(req, res) => {
-    res.json({
-        message: "Hola, aquí los usuarios",
-        timestamp: new Date().toISOString()
-    })
-})
-
-app.get("/products", (req, res) => {
-    res.send("Aquí los productos")
-}) */
-
-module.exports = routes
+module.exports = router

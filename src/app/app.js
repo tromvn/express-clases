@@ -3,10 +3,17 @@
 // importación de módulo (CommonJS)
 const express = require("express");
 const router = require('../routes/routes') 
-const morgan = require("morgan");
+const morgan = require('morgan');
 const app = express();
 
 app.use(morgan("dev"))
+// app.use()
+
+
+app.use((req,res,next) => {
+    console.log("Ingresando al middleware personalizado")
+    next()
+})
 
 app.use('/', router)
 
